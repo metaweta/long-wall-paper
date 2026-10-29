@@ -7,7 +7,7 @@
 
 \title{The Long Wall in a Time-Symmetric Two-Boundary Model}
 \author{Mike Stay}
-\date{Draft --- October 2026}
+\date{October 2026}
 
 \begin{document}
 \maketitle
@@ -193,7 +193,7 @@ The proof is the cancellation of the common factor $T(L)$.  Notice that this alg
 
 The proposition is an effective-channel result.  It does not follow from evaluating a free-space Fresnel kernel between the slit centers and the upstream tip.  A physical splitter imposes boundary conditions along the wall and may support finite-width modes, losses, mode conversion, or coupling.  The present model assumes that the two relevant channel modes are matched, uncoupled, and acted on by the same scalar.  Deriving \eqref{eq:scalartransfer} for a specified wall would require solving or characterizing that wall's boundary-value problem.
 
-\section{Why mirror symmetry alone is insufficient}
+\section{Why mirror symmetry alone is insufficient}\label{sec:exchange}
 
 The scalar hypothesis \eqref{eq:scalartransfer} is stronger than channel-exchange symmetry.  To see this, let
 \begin{equation}
@@ -219,7 +219,7 @@ It commutes with $J$, but it mixes the channels.  Acting on the amplitude vector
 \end{equation}
 At $\vartheta=0$ the output magnitudes are equal; at $\vartheta=\pi/4$ the first component vanishes.  Symmetry and losslessness therefore do not guarantee preservation of an arbitrary amplitude ratio.  The proposition requires identical scalar action on the relevant modal subspace, or some equally strong replacement.
 
-\section{Advanced coherence is not total-field visibility}
+\section{Advanced coherence is not total-field visibility}\label{sec:total}
 
 Even perfect common-mode propagation of the advanced pair does not fix the visibility of a total field containing other contributions.  Write
 \begin{equation}
@@ -304,6 +304,8 @@ The following have not been established:
 \item a guidance, absorption, or detection law converting the conditioned modulation into event frequencies;
 \item the Born distribution over candidate detector positions.
 \end{itemize}
+
+The algebraic identities in the preceding sections --- the detector-to-slit ratio \eqref{eq:relativephase}, the sum factorization \eqref{eq:conditionedsum}, the common-mode cancellation \eqref{eq:commoncancel}, the $U(\vartheta)$ counterexample of \S\ref{sec:exchange}, the visibility formula \eqref{eq:visibility}, and the total-field counterexamples of \S\ref{sec:total} --- are formalized and machine-checked in Lean~4 against \texttt{mathlib}; the proof source accompanies this manuscript.
 
 Thus the long wall remains a useful diagnostic.  It does not reveal a relative-phase obstruction in the restricted two-boundary model, but a complete time-symmetric theory still owes the dynamical results listed above.
 
