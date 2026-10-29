@@ -1,4 +1,11 @@
-import Mathlib
+/-
+Copyright (c) 2026 Mike Stay. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Mike Stay
+-/
+module
+
+public import Mathlib
 
 /-!
 # Formalization of the key equations in `long_wall.tex`
@@ -12,6 +19,8 @@ Its adjoint is the complex conjugate.  Since the prefactor is independent of
 the slit coordinate, it cancels from every ratio claim in the paper, so we
 work with the phase part only.
 -/
+
+public section
 
 namespace LongWall
 
@@ -156,3 +165,5 @@ theorem sum_factorization (k Y a d : ℝ) (hd : d ≠ 0) :
   rw [h_plus, h_minus, ← mul_add, two_cos_eq_exp_add_neg (k * a * Y / (2 * d))]
 
 end LongWall
+
+end -- public section
