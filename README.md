@@ -56,12 +56,4 @@ python3 verify.py
 
 It requires only [SymPy](https://www.sympy.org/).
 
-## Repository bundle
-
-A Git bundle can be cloned with:
-
-```sh
-git clone long-wall-paper.bundle long-wall-paper
-```
-
 No license has been specified in this repository.
