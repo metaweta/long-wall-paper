@@ -21,4 +21,4 @@ jobs:
           lake-package-directory: lean
       - uses: leanprover-community/docgen-action@v1
         with:
-          lake-package-directory: lean
+          lake_package_directory: lean
