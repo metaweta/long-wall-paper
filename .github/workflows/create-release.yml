@@ -6,7 +6,7 @@ on:
       - 'main'
       - 'master'
     paths:
-      - 'lean-toolchain'
+      - 'lean/lean-toolchain'
 
 jobs:
   lean-release-tag:
@@ -15,6 +15,9 @@ jobs:
     permissions:
       contents: write
     steps:
+    - uses: actions/checkout@v7
+    - name: Expose lean-toolchain at repository root
+      run: cp lean/lean-toolchain lean-toolchain
     - name: lean-release-tag action
       uses: leanprover-community/lean-release-tag@v1
       with:

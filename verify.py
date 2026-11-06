@@ -7,6 +7,8 @@ and asserts the result is identically zero (or equal to the claim).
 No numerical tolerance is used -- these are exact symbolic identities.
 """
 
+import sys
+
 import sympy as sp
 
 k, L, Y, a, d, delta, r, t, theta = sp.symbols(
@@ -14,6 +16,8 @@ k, L, Y, a, d, delta, r, t, theta = sp.symbols(
 )
 y1, y2, ell = sp.symbols("y1 y2 ell", real=True)
 I = sp.I
+
+_failures: list[str] = []
 
 
 def check(label, lhs, rhs=None):
@@ -33,6 +37,7 @@ def check(label, lhs, rhs=None):
     print(f"  [{status}] {label}")
     if not ok:
         print(f"         residual = {diff}")
+        _failures.append(label)
     return ok
 
 
@@ -144,5 +149,11 @@ check("V_total(t=-1) = 0", sp.simplify(V_at_m1))
 V_limit = sp.limit(V_total.subs(t, t_real), t_real, 0, "+")
 check("V_total(t) → 0 as t → 0+", sp.simplify(V_limit))
 
+
+if _failures:
+    print(f"\n{len(_failures)} check(s) FAILED:")
+    for label in _failures:
+        print(f"  - {label}")
+    sys.exit(1)
 
 print("\nAll checks completed.")

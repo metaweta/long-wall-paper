@@ -15,6 +15,8 @@ jobs:
       - name: Run the action
         id: check-for-updates
         uses: leanprover-community/mathlib-update-action@v1
+        with:
+          lake_package_directory: lean
         # START CONFIGURATION BLOCK 1
         # END CONFIGURATION BLOCK 1
   do-update: # Runs the upgrade, tests it, and makes a PR/issue/commit.
@@ -35,6 +37,7 @@ jobs:
         uses: leanprover-community/mathlib-update-action/do-update@v1
         with:
           tag: ${{ matrix.tag }}
+          lake_package_directory: lean
           # START CONFIGURATION BLOCK 2
           on_update_succeeds: pr # Create a pull request if the update succeeds
           on_update_fails: issue # Create an issue if the update fails

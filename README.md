@@ -56,4 +56,6 @@ python3 verify.py
 
 It requires only [SymPy](https://www.sympy.org/).
 
-No license has been specified in this repository.
+## License
+
+Released under the Apache License 2.0; see [`LICENSE`](LICENSE).
